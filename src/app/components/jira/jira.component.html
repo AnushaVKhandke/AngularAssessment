@@ -1,0 +1,190 @@
+<div class="content">
+    <div class="inputSearch">
+        <div class="card p-fluid">
+            <div class="search-container">
+                <p-chips [(ngModel)]="issues" separator="," placeholder="Hint: a, b, c"></p-chips>
+                <a (click)="onSave()"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="icons">
+    <div class="select">
+        <span class="select-all">Select All |</span>
+        <p-inputSwitch [(ngModel)]="checked" class=" switch custom-input-switch"></p-inputSwitch>
+    </div>
+    <div class="bars">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+</div>
+
+<div>
+
+    <div class="card">
+        <div class="table">
+            <p-table #dt [value]="issues"
+                [globalFilterFields]="['ticketId','jiraType','descreption','assignee','status','estimatedTime','storyPoint','ReleaseTag','sprint']"
+                dataKey="id" [paginator]="true" [rows]="5" [showCurrentPageReport]="false"
+                [tableStyle]="{ 'min-width': '50rem' }" [rowsPerPageOptions]="[10, 25, 50]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width:2%">
+                            <p-checkbox [binary]="true" inputId="binary" disabled="true"></p-checkbox>
+                        </th>
+                        <th style="width:10%">TicketID
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">JiraType
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">Description
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">Assignee
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">Status
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">EstimatedTime
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">StoryPoint
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">ReleaseTag
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                        <th style="width:10%">Sprint
+                            <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th></th>
+
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text"
+                                    (input)="dt.filter($event.target.value, 'ticketId', 'contains')"
+                                    placeholder="Search" class="p-column-filter">
+                            </span>
+
+                        </th>
+
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'jiraType', 'contains')" placeholder="Search"
+                                class="p-column-filter">
+                            </span>
+                        </th>
+                        
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'descreption', 'contains')" placeholder="Search"
+                                class="p-column-filter">
+                            </span>
+                        </th>
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'assignee', 'contains')" placeholder="Search"
+                                class="p-column-filter">
+                            </span>
+                        </th>
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filter($event.target.value, 'status', 'contains')"
+                                placeholder="Search" class="p-column-filter">
+                            </span>
+                           
+                        </th>
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'estimatedTime', 'contains')"
+                                placeholder="Search" class="p-column-filter">
+                            </span>
+                        </th>
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'storyPoint', 'contains')" placeholder="Search"
+                                class="p-column-filter">
+                            </span>
+                        </th>
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'ReleaseTag', 'contains')" placeholder="Search"
+                                class="p-column-filter">
+                            </span>
+                        </th>
+                        <th>
+                            <span class="p-input-icon-right">
+                                <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filter($event.target.value, 'sprint', 'contains')"
+                                placeholder="Search" class="p-column-filter">
+                            </span>
+                        </th>
+                    </tr>
+
+
+                </ng-template>
+                <ng-template pTemplate="body" let-ticket>
+                    <tr>
+                        <td> <p-checkbox [binary]="true" inputId="binary" disabled="true"></p-checkbox></td>
+                        <td>{{ ticket.ticketId }}</td>
+                        <td>{{ ticket.jiraType }}</td>
+                        <td>{{ ticket.descreption }}</td>
+                        <td>{{ ticket.assignee }}</td>
+                        <td>{{ ticket.status }}</td>
+                        <td>{{ ticket.estimatedTime }}</td>
+                        <td>{{ ticket.storyPoint }}</td>
+                        <td>{{ ticket.ReleaseTag }}</td>
+                        <td>{{ ticket.sprint }}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="paginatorleft">
+                    <p-button type="button" styleClass="p-button-text"></p-button>
+                </ng-template> 
+
+            </p-table>
+
+        </div>
+
+    </div>
+
+    <div class="btn">
+        <p-toast position="bottom-right"></p-toast>
+        <p-confirmDialog [style]="{ width: '50vw' }" key="positionDialog" [position]="position"
+            rejectButtonStyleClass="p-button-outlined"></p-confirmDialog>
+
+        <p-button (click)="confirmPosition('bottom-right')" label="bottom-right" styleClass="p-button-success"
+            label="Update Estimates Time" [disabled]="!authService.getPermissions().updateEstimateTime" class="b"
+            styleClass="h-3rem mt-1"></p-button>
+
+        <p-button (click)="confirmPosition('bottom-right')" label="bottom-right" styleClass="p-button-success"
+            label="Update Release Tag" [disabled]="!authService.getPermissions().updateReleaseTag" class="b"
+            styleClass="h-3rem mt-1 "></p-button>
+
+        <p-button (click)="confirmPosition('bottom-right')" label="bottom-right" styleClass="p-button-success"
+            label="Update Story Point" [disabled]="!authService.getPermissions().updateStoryPoint" class="b"
+            styleClass="h-3rem mt-1 "></p-button>
+
+        <p-button (click)="confirmPosition('bottom-right')" label="bottom-right" styleClass="p-button-success"
+            label="Update Status For Build" class="b" styleClass="h-3rem mt-1"
+            [disabled]="!authService.getPermissions().updateStatusBuild"></p-button>
+    </div>
+</div>

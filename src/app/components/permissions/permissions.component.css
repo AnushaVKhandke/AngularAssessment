@@ -1,0 +1,17 @@
+.table th{
+    font-size: 15px;
+    padding: 5px;
+}
+.table td{
+    font-size: 14px;
+    padding: 5px;
+  
+  }
+.table{
+    background-color: #fff;
+}  
+button{
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}

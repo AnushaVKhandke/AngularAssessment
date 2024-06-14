@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="table">
+        <p-table [value]="permissions" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5">
+            <ng-template pTemplate="header" let-columns>
+                <th rowspan="2">Name</th>
+                <th rowspan="2">Email</th>
+                <th colspan="5">Permission</th>
+                <th>Status</th>
+               
+                <tr>
+                    <th>Update Estimate Time</th>
+                    <th>Update Release Tag</th>
+                    <th>Update Story Point</th>
+                    <th>Update Status for Build</th>
+                    <th>Build History</th>
+                </tr>
+           
+            </ng-template>
+            <ng-template pTemplate="body" let-permission>
+                <tr *ngIf="permission.name !== 'admin'">
+                    <td>{{permission.name}}</td>
+                    <td>{{permission.email}}</td>
+
+                     <td><p-checkbox [binary]="true" inputId="updateEstimateTime" disabled="false"
+                            [(ngModel)]="permission.permissionMap['updateEstimateTime']"></p-checkbox></td>
+
+                    <td><p-checkbox [binary]="true" inputId="updateReleaseTag" disabled="false"
+                            [(ngModel)]="permission.permissionMap['updateReleaseTag']"></p-checkbox></td>
+
+                    <td><p-checkbox [binary]="true" inputId="updateStoryPoint" disabled="false"
+                            [(ngModel)]="permission.permissionMap['updateStoryPoint']"></p-checkbox></td>
+
+                    <td><p-checkbox [binary]="true" inputId="updateStatusBuild" disabled="false"
+                            [(ngModel)]="permission.permissionMap['updateStatusBuild']"></p-checkbox></td>
+
+                    <td><p-checkbox [binary]="true" inputId="buildHistory" disabled="false"
+                            [(ngModel)]="permission.permissionMap['buildHistory']"></p-checkbox></td>
+
+                    <td> <button [ngStyle]="{ 'background-color': permission.status === 'active' ? 'green' : 'red' }" (click)="togglePermissionStatus(permission)">
+                        {{ permission.status === 'active' ? 'Active' : 'Inactive' }}
+                      </button></td> 
+                    <div *ngIf="permission.permissionMap['updateEstimateTime'] || permission.permissionMap['updateReleaseTag'] || permission.permissionMap['updateStoryPoint'] || permission.permissionMap['updateStatusBuild'] || permission.permissionMap['buildHistory']" >
+                        <td><i class="fa-regular fa-floppy-disk" (click)="updateUserDetails(permission)"></i></td>
+                    </div>
+
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+
+.inputSearch {
+  position: relative;
+}
+
+.search-container {
+  position: relative;
+}
+
+.fa-magnifying-glass {
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  color:#3498DB;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select {
+  display: flex;
+  align-items: center; 
+}
+
+.bars {
+  display: flex;
+  align-items: center; 
+}
+
+.btn{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.b{
+  font-size: 10px;
+  margin-right: 30px;
+}
+.table th{
+  font-size: 12px;
+  padding: 5px;
+}
+.table td{
+  font-size: 10px;
+  padding: 5px;
+
+}
+:host ::ng-deep .b .p-button{
+  font-size: 12px;
+  width:150px;
+ height: 5px;
+}
+
+
+
+:host ::ng-deep .switch .p-inputswitch {
+  margin-top: 5px;
+  height: 18px;
+  width: 30px;
+  margin-left: 10px;
+  position: relative; 
+}
+
+:host ::ng-deep .switch .p-inputswitch-slider::before{
+  height: 10px;
+  width: 12px;
+  position: absolute;
+  padding-top: 8px;
+  margin-bottom: 5px;
+  margin-left: 0;
+}
+.p-inputtext{
+  width: 100px;
+  height: 10px;
+  font-size: 10px;
+  text-align: center;
+}
+/* .p-paginator{
+  margin-top: 5px;
+}
+:host ::ng-deep .p-datatable .p-paginator-bottom{
+  margin-top: 10px;
+  width: 200px;
+  float: right;
+  height: 30px;
+} */
+
+
+
+

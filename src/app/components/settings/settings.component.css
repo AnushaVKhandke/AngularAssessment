@@ -1,0 +1,12 @@
+.container{
+    width: 400px;
+}
+.custom-button{
+    background-color:#3498DB; 
+    border: none;
+    margin-top: 360px;
+    margin-left: 90%;
+}
+.btn{
+    border: none;
+}

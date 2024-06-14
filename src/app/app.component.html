@@ -1,0 +1,13 @@
+<!-- a={{checkisLoggedIn}} -->
+<div *ngIf="checkisLoggedIn() && checklog()">
+<!-- <div *ngIf="checklog() && isUserAuthenticated()" > -->
+ <app-home (onToggleSidenav)="onToggleSideNav($event)"></app-home>
+ <app-body 
+   [collapsed]="isSideNavCollapsed"
+   [screenWidth]="screenWidth"
+ ></app-body>
+</div>
+
+
+<!-- <app-login></app-login> -->
+<router-outlet></router-outlet>

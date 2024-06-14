@@ -1,0 +1,163 @@
+<!-- 
+
+<div class="container">
+    <p-toast position="center"></p-toast>
+    <div *ngIf="userData.authToken">
+        <p>Authorization token is: {{userData.authToken}}</p>
+    </div>
+   
+    <div class="field" *ngIf="!userData.authToken">
+        <label for="firstname1">Authorization Token</label>
+        <input id="firstname1" [(ngModel)]="userData.authToken" type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+
+    <div *ngIf="userData.authToken">
+    <p>BaseUrl is: {{userData.baseUrl}}</p>
+    </div>
+    <div class="field" *ngIf="!userData.baseUrl">
+        <label for="lastname1">Base Url</label>
+        <input id="lastname1" [(ngModel)]="userData.baseUrl" type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+
+
+
+
+    <div class="field" *ngIf="userData.baseUrl">
+        <label for="lastname1">Authentication Token</label>
+        <input id="lastname1" [(ngModel)]="userData.baseUrl" type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+    <div class="field" *ngIf="userData.baseUrl">
+        <label for="lastname1">Base Url</label>
+        <input id="lastname1" [(ngModel)]="userData.baseUrl" type="text"
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+
+</div>
+
+
+<div class="btn" *ngIf="!userData.authToken && !userData.baseUrl">
+    <button type="button" pButton pRipple (click)="updateUserData()" label="save" class="p-button-success custom-button"></button>
+</div>
+<div class="btn" *ngIf="userData.authToken && userData.baseUrl">
+    <button type="button" pButton pRipple (click)="updateUserData()" label="Edit" class="p-button-success custom-button"></button>
+</div> -->
+
+
+<!-- <div class="container">
+    <p-toast position="center"></p-toast>
+     -->
+    <!-- Show input fields if authToken is not available -->
+    <!-- <div *ngIf="!userData.authToken">
+        <div class="field">
+            <label for="authToken">Authorization Token</label>
+            <input id="authToken" [(ngModel)]="userData.authToken" type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div> -->
+
+        <!-- <div class="field">
+            <label for="baseUrl">Base Url</label>
+            <input id="baseUrl" [(ngModel)]="userData.baseUrl" type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div> -->
+
+        <!-- Show Save button only if both authToken and baseUrl are present -->
+        <!-- <div class="btn" *ngIf="userData.authToken && userData.baseUrl">
+            <button type="button" pButton pRipple (click)="updateUserData()" label="Save"
+                class="p-button-success custom-button"></button>
+        </div>
+    </div> -->
+
+    <!-- Show input fields if authToken is available -->
+    <!-- <div *ngIf="userData.authToken">
+        <p>Authorization token is: {{userData.authToken}}</p>
+        <p>BaseUrl is: {{userData.baseUrl}}</p> -->
+
+        <!-- Show Edit button if authToken is available -->
+        <!-- <div class="btn">
+            <button type="button" pButton pRipple (click)="updateUserData()" label="Edit"
+                class="p-button-success custom-button"></button>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div class="container">
+    <p-toast position="center"></p-toast> -->
+    
+    <!-- Show input fields if authToken is not available -->
+    <!-- <div *ngIf="!userData.authToken || editMode">
+        <div class="field">
+            <label for="authToken">Authorization Token</label>
+            <input id="authToken" [(ngModel)]="userData.authToken" type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+
+        <div class="field">
+            <label for="baseUrl">Base Url</label>
+            <input id="baseUrl" [(ngModel)]="userData.baseUrl" type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div> -->
+
+        <!-- Show Save button only if both authToken and baseUrl are present -->
+        <!-- <div class="btn" *ngIf="userData.authToken && userData.baseUrl">
+            <button type="button" pButton pRipple (click)="updateUserData()" label="Save"
+                class="p-button-success custom-button"></button>
+        </div>
+    </div> -->
+
+    <!-- Show input fields if authToken is available -->
+    <!-- <div *ngIf="userData.authToken && !editMode">
+        <p>Authorization token is: {{userData.authToken}}</p>
+        <p>BaseUrl is: {{userData.baseUrl}}</p> -->
+
+        <!-- Show Edit button if authToken is available -->
+        <!-- <div class="btn">
+            <button type="button" pButton pRipple (click)="toggleEditMode()" label="Edit"
+                class="p-button-success custom-button"></button>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container">
+    <p-toast position="center"></p-toast>
+    
+   
+    <div *ngIf="!userData.authToken || editMode">
+        <div class="field">
+            <label for="authToken">Authorization Token</label>
+            <input id="authToken" [(ngModel)]="userData.authToken" type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+
+        <div class="field">
+            <label for="baseUrl">Base Url</label>
+            <input id="baseUrl" [(ngModel)]="userData.baseUrl" type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+
+       
+        <div class="btn" *ngIf="editMode">
+            <button type="button" pButton pRipple (click)="updateUserData()" label="Save"
+                class="p-button-success custom-button"></button>
+        </div>
+    </div>
+
+   
+    <div *ngIf="userData.authToken && !editMode">
+        <p>Authorization token is: {{userData.authToken}}</p>
+        <p>BaseUrl is: {{userData.baseUrl}}</p>
+
+      
+        <div class="btn">
+            <button type="button" pButton pRipple (click)="toggleEditMode()" label="Edit"
+                class="p-button-success custom-button"></button>
+        </div>
+    </div>
+</div> 
+
+
+ 
