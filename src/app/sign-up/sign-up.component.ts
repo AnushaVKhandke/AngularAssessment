@@ -63,7 +63,7 @@ export class SignUpComponent {
         console.log("sign up successful")
         this.route.navigate(['/login']);
         this.userDetail(body);
-       
+
       },
       error: (errMsg) => {
         this.isLoading = false;
@@ -97,8 +97,5 @@ export class SignUpComponent {
       }
     );
   }
-
-
-
 
 }

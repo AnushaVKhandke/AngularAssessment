@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthResponse } from '../model/authresponse';
+
 import { User } from '../model/user';
 
 
@@ -22,8 +22,6 @@ export class LoginComponent {
   ngOnInit() {
 
   }
-
-
 
   loggedIn: boolean;
   onFormSubmit(form: NgForm) {

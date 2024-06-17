@@ -17,13 +17,13 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'body', component: BodyComponent,canDeactivate:[backbuttonGuard] },
-  { path: 'home', component: HomeComponent,canDeactivate:[backbuttonGuard] },
-  
-  {path:'jira',component:JiraComponent},
-  {path:'settings', component:SettingsComponent},
-  {path:'build', component:BuildHistoryComponent},
-  {path:'permissions', component:PermissionsComponent}
+  { path: 'body', component: BodyComponent, canDeactivate: [backbuttonGuard] },
+  { path: 'home', component: HomeComponent, canDeactivate: [backbuttonGuard] },
+
+  { path: 'jira', component: JiraComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'build', component: BuildHistoryComponent },
+  { path: 'permissions', component: PermissionsComponent }
 ]
 
 @NgModule({

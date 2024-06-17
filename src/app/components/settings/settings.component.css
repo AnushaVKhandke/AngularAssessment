@@ -1,12 +1,29 @@
-.container{
+.container {
     width: 400px;
 }
-.custom-button{
-    background-color:#3498DB; 
+
+.custom-button {
+    background-color: #3498DB;
     border: none;
-    margin-top: 360px;
-    margin-left: 90%;
+    border-radius: 0px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
-.btn{
+
+/* .btn {
     border: none;
-}
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50%;
+
+} */
+
+/* .custom-button[_ngcontent-ng-c2269932327] {
+    background-color: #3498DB;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    border-radius: 0px;
+} */

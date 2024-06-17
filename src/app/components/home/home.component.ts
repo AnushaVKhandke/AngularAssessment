@@ -13,6 +13,7 @@ interface sideNavToggle {
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  userEmail: string = '';
   idu: string | null;
   constructor(private authservice: AuthService, private platformLocation: PlatformLocation) {
     history.pushState(null, '', location.href);
@@ -22,6 +23,7 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
+    this.userEmail = this.authservice.getEmailFromSession();
     this.screenWidth = window.innerWidth;
   }
 
@@ -53,6 +55,7 @@ export class HomeComponent {
   chechLogin() {
     return this.authservice.isAuthenticated()
   }
+
 
 
 }

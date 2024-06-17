@@ -20,7 +20,6 @@ export class PermissionsComponent {
   }
 
   permissions = [];
-
   permission = true;
   btnvalue = false;
   userData = null;
@@ -40,6 +39,7 @@ export class PermissionsComponent {
       .subscribe((res) => {
         console.log(res)
         this.permissions = res
+
       })
 
   }
@@ -48,6 +48,7 @@ export class PermissionsComponent {
     const userDataString = sessionStorage.getItem('userDetails');
     if (userDataString) {
       this.userData = JSON.parse(userDataString)[0];
+
     }
 
   }

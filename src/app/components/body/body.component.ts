@@ -8,35 +8,29 @@ import { PlatformLocation } from '@angular/common';
   styleUrl: './body.component.css'
 })
 export class BodyComponent {
-  constructor(private authservice: AuthService, private platformLocation:PlatformLocation) {
-    history.pushState(null,'',location.href);
-    this.platformLocation.onPopState(()=>{
-      history.pushState(null,'',location.href)
+  constructor(private authservice: AuthService, private platformLocation: PlatformLocation) {
+    history.pushState(null, '', location.href);
+    this.platformLocation.onPopState(() => {
+      history.pushState(null, '', location.href)
     })
-   }
+  }
   @Input() collapsed = false;
   @Input() screenWidth = 0;
 
-    
-    getBodyClass():string{
-      
-     let styleClass='';
-     if(this.collapsed && this.screenWidth > 768){
-       styleClass='body-trimmed';
-     }else if(this.collapsed && this.screenWidth <= 768 && this.screenWidth >0){
-       styleClass='body-md-screen'
-     }
-    
-       return styleClass;
-      
-  }
 
-    checklog(){
-      this.authservice.isAuthenticated()
+  getBodyClass(): string {
+
+    let styleClass = '';
+    if (this.collapsed && this.screenWidth > 768) {
+      styleClass = 'body-trimmed';
+    } else if (this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0) {
+      styleClass = 'body-md-screen'
     }
-
-   
- 
+    return styleClass;
+  }
+  checklog() {
+    this.authservice.isAuthenticated()
+  }
 }
 
 

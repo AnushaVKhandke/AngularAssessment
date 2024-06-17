@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, tap, throwError } from 'rxjs';
-import { AuthResponse } from '../model/authresponse';
 import { User } from '../model/user';
 
 
@@ -34,7 +33,7 @@ export class AuthService {
           if (res && res.localId) {
             sessionStorage.setItem('currentUserId', res.localId);
             this.loggedIn = true;
-            localStorage.setItem('isLoggedIn', this.loggedIn.toString());
+            sessionStorage.setItem('isLoggedIn', this.loggedIn.toString());
             console.log(res)
           }
         })
@@ -101,10 +100,31 @@ export class AuthService {
   }
 
   getPermissions(){
-    if(this.permissionData === undefined || Object.values(this.permissionData).length === 0){
+    if(sessionStorage.getItem('userDetails') && (this.permissionData === undefined || Object.values(this.permissionData).length === 0)){
       this.permissionData = JSON.parse(sessionStorage.getItem('userDetails'))[0].permissionMap;
     }
     return this.permissionData;
   }
 
+  // getLoggedInUserEmail(): string {
+  //   const userDetailsString = JSON.parse(sessionStorage.getItem('userDetails'))[0];
+  //   if (userDetailsString) {
+  //     const userDetails = JSON.parse(userDetailsString);
+  //     return userDetails.email;
+  //   }
+  //   return '';
+  // }
+
+  getEmailFromSession() {
+    const userDetails = JSON.parse(sessionStorage.getItem('userDetails'));
+    if (userDetails && userDetails.length > 0) {
+      return userDetails[0].email;
+    } else {
+      return null; // or handle the case where userDetails or email is not available
+    }
+  }
+  
 }
+
+
+

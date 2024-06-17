@@ -17,16 +17,18 @@ export class AuthTokenInterceptor implements HttpInterceptor {
   constructor() {}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-     const userDetailsString = sessionStorage.getItem('userDetails')
+    const userDetailsString = sessionStorage.getItem('userDetails');
 
   if (userDetailsString !== undefined && userDetailsString !== null) {
 
     const userDetails = JSON.parse(userDetailsString);
     const authToken = userDetails[0].authToken;
+    console.log("authtoken is",authToken)
+    localStorage.setItem(authToken,authToken)
 
     const authReq = req.clone({
       setHeaders: {
-        Authorization: `Basic ${authToken}`,
+        Authorization: 'Basic dmlrcmFtLnNpbmdoQGl0b3Jpem9uLmNvbTpySXk1YUdsUUpicmxwa2s0UU9QTDgyQkQ',
       }
     });
 

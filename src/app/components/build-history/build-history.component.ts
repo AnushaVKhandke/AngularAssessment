@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './build-history.component.css'
 })
 export class BuildHistoryComponent {
-
+ tickets=[];
 }
